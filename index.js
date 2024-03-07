@@ -15,24 +15,62 @@ const fs = require("fs");
 const http = require("http");
 
 const server = http.createServer((req, res) => {
-  let = products = [];
-  fs.readFile("data.json", async (err, data) => {
-    if (err) {
-      console.error("Error reading file:", err);
-      return;
-    }
+  console.log(req.url);
+  switch (req.url) {
+    case "/test":
+      res.writeHead(200, {
+        "Access-Control-Allow-Origin": "http://127.0.0.1:5500",
+        "Content-Type": "application/json",
+      });
+      res.end(JSON.stringify({ message: "this is a test request" }));
+      break;
 
-    // Parse the JSON data
-    products = await JSON.parse(data);
+    case "/getone":
+      console.log(req.headers.id)
+      let = products = [];
+      fs.readFile("data.json", async (err, data) => {
+        if (err) {
+          console.error("Error reading file:", err);
+          return;
+        }
+        // Parse the JSON data
+        products = await JSON.parse(data);
 
-    res.writeHead(200, {
-      "Content-Type": "application/json",
-      "Access-Control-Allow-Origin": "http://127.0.0.1:5500",
-    });
+        const one = products.filter((e) => {
+          return e.id == req.headers.id;
+        });
 
-    res.end(JSON.stringify(products));
-    // Now you can work with the products data as a JavaScript object
-  });
+        // Now you can work with the products data as a JavaScript object
+        res.writeHead(200, {
+          "Access-Control-Allow-Origin": "http://127.0.0.1:5500",
+
+          "Content-Type": "application/json",
+        });
+
+        res.end(JSON.stringify(one));
+      });
+         break;
+    default:
+      let = products = [];
+      fs.readFile("data.json", async (err, data) => {
+        if (err) {
+          console.error("Error reading file:", err);
+          return;
+        }
+        // Parse the JSON data
+        products = await JSON.parse(data);
+
+        // Now you can work with the products data as a JavaScript object
+        res.writeHead(200, {
+          "Access-Control-Allow-Origin": "http://127.0.0.1:5500",
+
+          "Content-Type": "application/json",
+        });
+
+        res.end(JSON.stringify(products));
+      });
+      break;
+  }
 
   // Send the response body "Hello World"
 });

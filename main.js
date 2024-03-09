@@ -27,7 +27,6 @@ function Cart() {
     }
     return result;
   }
-  function init() {}
 
   /// defining the data model
   var Data = {
@@ -57,11 +56,11 @@ function Cart() {
   };
 
   // load data to the  dom
-
   // load products images
   document.getElementById("nike-img").src = Data["items"][0]["image"];
   document.getElementById("adidas-img").src = Data["items"][1]["image"];
 
+  
   // load products names
   document.getElementById("nike-name").innerHTML = Data["items"][0]["name"];
   document.getElementById("adidas-name").innerHTML = Data["items"][1]["name"];
@@ -75,6 +74,9 @@ function Cart() {
   //load  products prices
   document.getElementById("nike-price").innerHTML = Data["items"][0]["price"];
   document.getElementById("adidas-price").innerHTML = Data["items"][1]["price"];
+
+
+
 
   // assign event to the first product plus button
   var nikeQuantityPlus = document.getElementById("nike-plus");
@@ -147,6 +149,11 @@ function Cart() {
       Data["items"][1]["price"] * Data["items"][1]["quantity"];
   });
 
+
+
+
+
+  
   // assing event the like button click for  the first product
   document.getElementById("like-1").addEventListener("click", function () {
     // change the color of the like button one user click like

@@ -17,27 +17,43 @@
           margin: 0;
         }
       }
+
+      #container {
+        display:flex;
+      }
+
+      .item{
+        width: 50%;
+        border: 1px solid blue;
+      }
+
+      .img{
+        width: 25%;
+      }
+
+      .del {
+        width: 10%;
+      }
     </style>
 
-    <link rel="stylesheet" href="./output.css" />
   </head>
   <body>
     <div class="h-screen bg-gray-100 pt-20">
       <h1 class="mb-10 text-center text-2xl font-bold">Cart Items</h1>
 
-      <div
+      <div id="container"
       class="mx-auto max-w-5xl justify-center px-6 md:flex md:space-x-6 xl:px-0"
       >
       <div class="rounded-lg md:w-2/3">
           <!-- firstt Item  -->
           <div
           id="nike"
-            class="justify-between mb-6 rounded-lg bg-white p-6 shadow-md sm:flex sm:justify-start"
+            class="item"
           >
             <img
               id="nike-img"
               alt="product-image"
-              class="w-full rounded-lg sm:w-40"
+              class="img"
             />
             <div class="sm:ml-4 sm:flex sm:w-full sm:justify-between">
               <div class="mt-5 sm:mt-0">
@@ -73,6 +89,7 @@
                   <svg
                    id="delete-nike"
                     xmlns="http://www.w3.org/2000/svg"
+                    class="del"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke-width="1.5"
@@ -90,12 +107,12 @@
             </div>
           </div>
           <div
-           id="adidas" class="justify-between mb-6 rounded-lg bg-white p-6 shadow-md sm:flex sm:justify-start"
+           id="adidas" class="item"
           >
             <img
               id="adidas-img"
               alt="product-image"
-              class="w-full rounded-lg sm:w-40"
+              class="img"
             />
             <div class="sm:ml-4 sm:flex sm:w-full sm:justify-between">
               <div class="mt-5 sm:mt-0">
@@ -134,6 +151,7 @@
                   <svg
                   id="delete-adidas"
                     xmlns="http://www.w3.org/2000/svg"
+                    class="del"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke-width="1.5"
